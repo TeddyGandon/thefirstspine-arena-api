@@ -5,6 +5,7 @@
 - Déclarer une clé API
 - Obtenir un jeton d'accès
 - Interagir avec l'API Arena
+- Comprendre l'API : Jeu / Actions / Réponses
 - Documentation de référence
 
 ## Déclarer une clé API
@@ -25,3 +26,31 @@ Afin d'obtenir un jeton d'accès vous devez diriger l'utilisateur vers l'adresse
 Une fois l'utilisateur ayant donné son accord, il sera redirigé vers votre le domaine autorisé de votre application comme suite : `<allowed_domain>[<redirect>]?access_token=<access_token>`
 
 Le jeton d'accès à l'utilisateur est contenu dans le paramètre GET `<access_token>` après retour sur votre application.
+
+## Interagir avec l'API Arena
+
+L'API Arena est accessible depuis une URL unique : `https://www.thefirstspine.fr/api/arena`.
+
+Chaque requête vers l'API a la forme suivante :
+
+```curl
+curl -X POST \
+  http://localhost/api/arena \
+  -H 'X-API-Credentials: <public>:<secret>' \
+  -d '{
+  "method": "<method>",
+  "parameters": <parameters>
+}'
+```
+
+- `<public>` & `<secret>` font référence à votre clé API
+- `<method>` est la méthode à appeler de l'API. L'API est organisée en méthodes que vous pouvez appeler comme `createGame` ou `getCards`.
+- `<parameters>` est un objet qui change en fonction de la méthode appelée.
+
+## Comprendre l'API : Jeu / Actions / Réponses
+
+Avant de lire cette partie, nous vous invitons à consulter cet article qui regroupe les réflexions que nous avons eu sur le système d'Arena : https://github.com/TeddyGandon/thefirstspine-arena-throughts/blob/master/core.md
+
+Lorsque vous créez un jeu avec Arena une pile d'actions potientielle est créée. Arena attend alors une réponse de la part de l'utilisateur concerné par la pile d'actions disponible.
+
+## Documentation de référence
