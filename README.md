@@ -73,7 +73,7 @@ Retourne une instance de type `ArenaGame`
 
 ```curl
 curl -X POST \
-  http://homestead.test/api/arena \
+  https://www.thefirstspine.fr/api/arena \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Credentials: ptest:stest' \
   -d '{
@@ -112,7 +112,7 @@ Retourne un tableau d'instances de type `ArenaCard`
 
 ```curl
 curl -X POST \
-  http://homestead.test/api/arena \
+  https://www.thefirstspine.fr/api/arena \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Credentials: ptest:stest' \
   -d '{
@@ -137,7 +137,7 @@ Retourne une instance de type `ArenaGame`
 
 ```curl
 curl -X POST \
-  http://homestead.test/api/arena \
+  https://www.thefirstspine.fr/api/arena \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Credentials: ptest:stest' \
   -d '{
