@@ -37,6 +37,7 @@ Chaque requête vers l'API a la forme suivante :
 curl -X POST \
   http://localhost/api/arena \
   -H 'X-API-Credentials: <public>:<secret>' \
+  -H 'Content-Type: application/json' \
   -d '{
   "method": "<method>",
   "parameters": <parameters>
@@ -97,19 +98,55 @@ curl -X POST \
 
 ### getCards
 
+Retourne toutes les cartes dans l'instance de jeu créé.
+
 #### Input
+
+- `int arena_game_id`: l'identifiant de l'instance.
 
 #### Output
 
+Retourne un tableau d'instances de type `ArenaCard`
+
 #### Exemple
+
+```curl
+curl -X POST \
+  http://homestead.test/api/arena \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Credentials: ptest:stest' \
+  -d '{
+	"method": "getCards",
+	"parameters": {
+		"arena_game_id": 2
+	}
+}'
+```
 
 ### getGame
 
 #### Input
 
+- `int arena_game_id`: l'identifiant de l'instance.
+
 #### Output
 
+Retourne une instance de type `ArenaGame`
+
 #### Exemple
+
+```curl
+curl -X POST \
+  http://homestead.test/api/arena \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Credentials: ptest:stest' \
+  -d '{
+	"method": "getGame",
+	"parameters": {
+		"arena_game_id": 2
+	}
+}'
+```
 
 ### getGameAction
 
