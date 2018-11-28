@@ -61,8 +61,8 @@ Créé une partie dans Arena.
 
 #### Input
 
-- `String(quickGame|bga|fireMountain|beltain|lostGraveyard|pumpking) gameType`: 
-- `Object({token: String, destiny: String(conjurer|summoner|sorcerer|hunter), origin: String(healer|surgeon|ignorant|architect)})[] players`: 
+- `String(quickGame|bga|fireMountain|beltain|lostGraveyard|pumpking) gameType`: le type de jeu que vous souhaitez créer.
+- `Object({token: String, destiny: String(conjurer|summoner|sorcerer|hunter), origin: String(healer|surgeon|ignorant|architect)})[] players`: les joueurs qui vont participer à 
 
 #### Output
 
@@ -71,14 +71,11 @@ Retourne une instance de type `ArenaGame`
 #### Exemple
 
 ```curl
-POST /api/arena HTTP/1.1
-Host: homestead.test
-Content-Type: application/json
-X-Api-Credentials: ptest:stest
-Cache-Control: no-cache
-Postman-Token: cd610f66-99a2-4f25-81de-0d270c41b8d7
-
-{
+curl -X POST \
+  http://homestead.test/api/arena \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Credentials: ptest:stest' \
+  -d '{
 	"method": "createGame",
 	"parameters": {
 		"gameType": "quickGame",
@@ -95,7 +92,7 @@ Postman-Token: cd610f66-99a2-4f25-81de-0d270c41b8d7
 			}
 		]
 	}
-}
+}'
 ```
 
 ### getCards
