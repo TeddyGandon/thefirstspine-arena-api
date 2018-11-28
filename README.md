@@ -57,9 +57,16 @@ Lorsque vous créez un jeu avec Arena une pile d'actions potientielle est créé
 
 ### createGame
 
+Créé une partie dans Arena.
+
 #### Input
 
+- `String(quickGame|bga|fireMountain|beltain|lostGraveyard|pumpking) gameType`: 
+- `Object({token: String, destiny: String(conjurer|summoner|sorcerer|hunter), origin: String(healer|surgeon|ignorant|architect)})[] players`: 
+
 #### Output
+
+Retourne une instance de type `ArenaGame`
 
 #### Exemple
 
