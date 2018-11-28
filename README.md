@@ -70,6 +70,34 @@ Retourne une instance de type `ArenaGame`
 
 #### Exemple
 
+```curl
+POST /api/arena HTTP/1.1
+Host: homestead.test
+Content-Type: application/json
+X-Api-Credentials: ptest:stest
+Cache-Control: no-cache
+Postman-Token: cd610f66-99a2-4f25-81de-0d270c41b8d7
+
+{
+	"method": "createGame",
+	"parameters": {
+		"gameType": "quickGame",
+		"players": [
+			{
+				"token": "Nefo4ny3pVhJtoOHYIHz4crpfvJNQtYPrdIoxpaZVVjTfwiyjT0xTR12sWvdYBlRLgyYRVPOOZwBB8X6xXF0KG5RZxskzc27Qa25",
+				"destiny": "conjurer",
+				"origin": "healer"
+			},
+			{
+				"token": "timXiiA98hZYnfzGAXrS18GKaRyh0H1CwkcK6EoqiGumRGA1Af8NIBI8FSYTf43ygbzLPqzJO3GnOP8u45xpBxT5pTAjz9AQTfvh",
+				"destiny": "summoner",
+				"origin": "surgeon"
+			}
+		]
+	}
+}
+```
+
 ### getCards
 
 #### Input
