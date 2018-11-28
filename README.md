@@ -1,4 +1,4 @@
-# TFS Arena - API publique
+# The First Spine Arena - API publique
 
 ## Sommaire
 
@@ -10,7 +10,7 @@
 
 ## Déclarer une clé API
 
-Avant de commencer à créer votre client et intégrer TFS à votre plateforme vous devez au préalable obtenir une clé API. Vous pouvez nous contacter pour en obtenir une. Nous n'en générons qu'à la demande et à l'étude de votre projet (on ne va pas vous générer une clé API pour vous permettre d'augmenter votre ratio victoires / défaites).
+Avant de commencer à créer votre client et intégrer The First Spine à votre plateforme vous devez au préalable obtenir une clé API. Vous pouvez nous contacter pour en obtenir une. Nous n'en générons qu'à la demande et à l'étude de votre projet (on ne va pas vous générer une clé API pour vous permettre d'augmenter votre ratio victoires / défaites).
 
 Une clé api contient plusieurs éléments :
 - L'identifiant publique appelé `public`
@@ -54,3 +54,67 @@ Avant de lire cette partie, nous vous invitons à consulter cet article qui regr
 Lorsque vous créez un jeu avec Arena une pile d'actions potientielle est créée. Arena attend alors une réponse de la part de l'utilisateur concerné par la pile d'actions disponible.
 
 ## Documentation de référence
+
+### createGame
+
+#### Input
+
+#### Output
+
+#### Exemple
+
+### getCards
+
+#### Input
+
+#### Output
+
+#### Exemple
+
+### getGame
+
+#### Input
+
+#### Output
+
+#### Exemple
+
+### getGameAction
+
+#### Input
+
+#### Output
+
+#### Exemple
+
+### getGameActions
+
+#### Input
+
+#### Output
+
+#### Exemple
+
+### getMessages
+
+#### Input
+
+#### Output
+
+#### Exemple
+
+### respondToGameAction
+
+#### Input
+
+#### Output
+
+#### Exemple
+
+### zombifyUser
+
+#### Input
+
+#### Output
+
+#### Exemple
