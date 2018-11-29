@@ -6,7 +6,8 @@
 - Obtenir un jeton d'accès
 - Interagir avec l'API Arena
 - Comprendre l'API : Jeu / Actions / Réponses
-- Documentation de référence
+- Documentation de référence des méthodes
+- Documentation de référence des objets
 
 ## 🔑 Déclarer une clé API
 
@@ -54,7 +55,7 @@ Avant de lire cette partie, nous vous invitons à consulter cet article qui regr
 
 Lorsque vous créez un jeu avec Arena une pile d'actions potientielle est créée. Arena attend alors une réponse de la part de l'utilisateur concerné par la pile d'actions disponible.
 
-## 💗 Documentation de référence
+## 💗 Documentation de référence des méthodes
 
 ### createGame
 
@@ -69,7 +70,7 @@ Créé une partie dans Arena.
 
 Retourne une instance de type `ArenaGame`
 
-#### Exemple
+#### Example
 
 ```curl
 curl -X POST \
@@ -77,22 +78,22 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Credentials: ptest:stest' \
   -d '{
-	"method": "createGame",
-	"parameters": {
-		"gameType": "quickGame",
-		"players": [
-			{
-				"token": "Nefo4ny3pVhJtoOHYIHz4crpfvJNQtYPrdIoxpaZVVjTfwiyjT0xTR12sWvdYBlRLgyYRVPOOZwBB8X6xXF0KG5RZxskzc27Qa25",
-				"destiny": "conjurer",
-				"origin": "healer"
-			},
-			{
-				"token": "timXiiA98hZYnfzGAXrS18GKaRyh0H1CwkcK6EoqiGumRGA1Af8NIBI8FSYTf43ygbzLPqzJO3GnOP8u45xpBxT5pTAjz9AQTfvh",
-				"destiny": "summoner",
-				"origin": "surgeon"
-			}
-		]
-	}
+    "method": "createGame",
+    "parameters": {
+        "gameType": "quickGame",
+        "players": [
+            {
+                "token": "Nefo4ny3pVhJtoOHYIHz4crpfvJNQtYPrdIoxpaZVVjTfwiyjT0xTR12sWvdYBlRLgyYRVPOOZwBB8X6xXF0KG5RZxskzc27Qa25",
+                "destiny": "conjurer",
+                "origin": "healer"
+            },
+            {
+                "token": "timXiiA98hZYnfzGAXrS18GKaRyh0H1CwkcK6EoqiGumRGA1Af8NIBI8FSYTf43ygbzLPqzJO3GnOP8u45xpBxT5pTAjz9AQTfvh",
+                "destiny": "summoner",
+                "origin": "surgeon"
+            }
+        ]
+    }
 }'
 ```
 
@@ -108,7 +109,7 @@ Retourne toutes les cartes dans l'instance de jeu créé.
 
 Retourne un tableau d'instances de type `ArenaCard`
 
-#### Exemple
+#### Example
 
 ```curl
 curl -X POST \
@@ -116,10 +117,10 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Credentials: ptest:stest' \
   -d '{
-	"method": "getCards",
-	"parameters": {
-		"arena_game_id": 2
-	}
+    "method": "getCards",
+    "parameters": {
+        "arena_game_id": 2
+    }
 }'
 ```
 
@@ -133,7 +134,7 @@ curl -X POST \
 
 Retourne une instance de type `ArenaGame`
 
-#### Exemple
+#### Example
 
 ```curl
 curl -X POST \
@@ -141,10 +142,10 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -H 'X-Api-Credentials: ptest:stest' \
   -d '{
-	"method": "getGame",
-	"parameters": {
-		"arena_game_id": 2
-	}
+    "method": "getGame",
+    "parameters": {
+        "arena_game_id": 2
+    }
 }'
 ```
 
@@ -154,7 +155,7 @@ curl -X POST \
 
 #### Output
 
-#### Exemple
+#### Example
 
 ### getGameActions
 
@@ -162,7 +163,7 @@ curl -X POST \
 
 #### Output
 
-#### Exemple
+#### Example
 
 ### getMessages
 
@@ -170,7 +171,7 @@ curl -X POST \
 
 #### Output
 
-#### Exemple
+#### Example
 
 ### respondToGameAction
 
@@ -178,7 +179,7 @@ curl -X POST \
 
 #### Output
 
-#### Exemple
+#### Example
 
 ### zombifyUser
 
@@ -186,4 +187,6 @@ curl -X POST \
 
 #### Output
 
-#### Exemple
+#### Example
+
+## 💗 Documentation de référence des méthodes
