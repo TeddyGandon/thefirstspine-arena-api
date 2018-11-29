@@ -325,7 +325,7 @@ Représente une carte dans le jeu.
 
 ## Deck
 
-Une Deck est un paquet de cartes pré-construit dans le jeu.
+Un Deck est un paquet de cartes pré-construit dans le jeu.
 
 **Champs**
 
@@ -350,25 +350,27 @@ Un utilisateur enregistré sur les services de The First Spine.
 | String `name`        | Nom d'utilisateur                               |
 | String `avatar`      | The image of the user                           |
 | Object `loots`       | Les récompenses de l'utilisateur                |
+| Object `arena`       | Les préférences sur Arena de l'utilisateur      |
+| User[] `friends`     | Les amis de l'utilisateur                       |
 
 ## ArenaCard
 
-TODO
+Un objet `ArenaCard` est une carte qui a été générée pour une partie sur Arena. Elle est toujours associée à une instance `ArenaGame`.
 
 **Champs**
 
-| Nom                  | Description                                     |
-| -------------------- | ----------------------------------------------- |
-| int `arena_card_id`  | L'identifiant de la ressource                   |
-| int `user_id`        | The ID of the user which the card belongs to    |
-| Card `card`          | The associated card                             |
-| String `location`    | The location of the card                        |
-| String `position`    | The position of the card on the board (X-Y)     |
-| Object `options`     | The options of the card                         |
+| Nom                  | Description                                                        |
+| -------------------- | ------------------------------------------------------------------ |
+| int `arena_card_id`  | L'identifiant de la ressource                                      |
+| int `user_id`        | L'identifiant de l'utilisateur propriétaire de la carte            |
+| Card `card`          | La carte associée                                                  |
+| String `location`    | La location de la carte (`board`, `deck`, `hand`, `throw`)         |
+| String `position`    | La position de la carte sur le tableau                   (X-Y)     |
+| Object `options`     | Les options de la carte (comme ses marqueurs par exemple)          |
 
 ## ArenaGame
 
-TODO
+Représente une instance de jeu
 
 **Champs**
 
@@ -385,33 +387,33 @@ TODO
 
 ## ArenaGameAction
 
-An action is defined by a group of desired sub-actions called a script.
+Une instance de `ArenaGameAction` est définie par un group de sous-actions qui définissent les interations attendues. On appelle ces sous-actions le script.
 
 **Champs**
 
-| Name                       | Description                                     |
-| -------------------------- | ----------------------------------------------- |
-| int `arena_game_action_id` | L'identifiant de la ressource                   |
-| int `arena_game_id`        | The game ID concerned by the action             |
-| int `user_id`              | The user ID concerned by the action             |
-| int `reference`            | The reference of the action                     |
-| String `title`             | The title of the action                         |
-| Object `script`            | TODO                                            |
+| Name                       | Description                                                    |
+| -------------------------- | -------------------------------------------------------------- |
+| int `arena_game_action_id` | L'identifiant de la ressource                                  |
+| int `arena_game_id`        | Identifiant de la partie dont fait partie l'action             |
+| int `user_id`              | L'utilisateur concerné par cette action                        |
+| int `reference`            | La référence de l'action                                       |
+| String `title`             | Le titre de l'action                                           |
+| Object `script`            | Le script de l'action                                          |
 
-### Scripts syntaxe
+### Syntaxe du script
 
-Each action is defined by one or more prompts in the `script` property:
+Chaque action est définie par une ou plusieurs interactions. Les résultats de ces interactions sont à retourner dans la réponse de l'action.
 ```
 {
-  (String neededProperty): {
-    "type": (String type),
-    "message": (String message),
-    "params": (object parameters)
+  <String neededProperty>: {
+    "type": <String type>,
+    "message": <String message>,
+    "params": <Object parameters>
   }
 }
 ```
 
-For instance:
+Par exemple :
 ```
 {
   "card": {
@@ -433,11 +435,11 @@ For instance:
 }
 ```
 
-### Result binding
+### Paramètres dynamiques
 
-Is it possible to have binded results in the parameters of an action script. Each binded result will be a String that look like this: `"$result"`.
+Il est possible de retourner un résultat dans les paramètres d'un script d'action. Chaque résultat attendu doit être précédé d'un `$`.
 
-For instance:
+Exemple :
 
 ```
 {
@@ -459,7 +461,7 @@ For instance:
 }
 ```
 
-the parameter `nextTo` will have the value of the result of the `from` script.
+Le paramètre `nextTo` aura la valeur du champ `from` lors de l'execution du script.
 
 ### Scripts reference
 
