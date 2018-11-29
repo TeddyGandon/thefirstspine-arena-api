@@ -170,35 +170,120 @@ curl -X POST \
 
 ## getGameAction
 
+Retourne une action de jeu.
+
 ### Input
+
+- `int arena_game_action_id`: l'identifiant de l'action à retourner
 
 ### Output
 
+Retourne une instance de type `ArenaGameAction`
+
 ### Example
+
+```curl
+curl -X POST \
+  https://www.thefirstspine.fr/api/arena \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Credentials: ptest:stest' \
+  -d '{
+    "method": "getGameAction",
+    "parameters": {
+        "arena_game_action_id": 12
+    }
+}'
+```
 
 ## getGameActions
 
+Retourne les actions disponibles et qui sont en attente de réponse.
+
 ### Input
+
+- `int arena_game_id`: l'identifiant de l'instance de jeu.
 
 ### Output
 
+Retourne un tableau d'instances de type `ArenaGameAction`
+
 ### Example
+
+```curl
+curl -X POST \
+  https://www.thefirstspine.fr/api/arena \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Credentials: ptest:stest' \
+  -d '{
+    "method": "getGameActions",
+    "parameters": {
+        "arena_game_id": 2
+    }
+}'
+```
 
 ## getMessages
 
+Retourne les messages créés dans l'instance de jeu.
+
 ### Input
+
+- `int arena_game_id`: l'identifiant de l'instance de jeu.
 
 ### Output
 
+Retourne un tableau d'instances de type `ArenaMessage`
+
 ### Example
+
+```curl
+curl -X POST \
+  https://www.thefirstspine.fr/api/arena \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Credentials: ptest:stest' \
+  -d '{
+    "method": "getMessages",
+    "parameters": {
+        "arena_game_id": 2
+    }
+}'
+```
 
 ## respondToGameAction
 
+Répond à une action
+
 ### Input
+
+- `String token`: le jeton d'accès correspondant à l'utilisateur devant répondre
+- `int arena_game_id`: l'identifiant de la partie en cours
+- `int arena_game_action_id`: l'identifiant de l'action
+- `Object response`: la réponse à l'action - voir "Documentation de référence des objets" plus bas pour plus d'informations sur comment répondre à une action
 
 ### Output
 
+Retourne un résultat équivalent à `getGameActions`.
+
 ### Example
+
+```curl
+curl -X POST \
+  https://www.thefirstspine.fr/api/arena \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Credentials: ptest:stest' \
+  -d '{
+    "method": "getMessages",
+    "parameters": {
+        "token": "Nefo4ny3pVhJtoOHYIHz4crpfvJNQtYPrdIoxpaZVVjTfwiyjT0xTR12sWvdYBlRLgyYRVPOOZwBB8X6xXF0KG5RZxskzc27Qa25",
+        "arena_game_id": 2,
+        "arena_game_action_id": 6,
+        "response": {
+            "from": "3-3",
+            "to": "3-4"
+        }
+    }
+}'
+```
 
 ## zombifyUser
 
@@ -216,27 +301,27 @@ Représente une carte dans le jeu.
 
 **Champs**
 
-| Nom                  | Description                                     |
-| -------------------- | ----------------------------------------------- |
-| int `card_id`        | L'identifiant de la ressource                   |
-| String `name`        | Nom de la carte                                 |
-| String `description` | Description de la carte                         |
-| String `image`       | L'image liée à la carte                         |
-| int `top_str`        | TODO                                            |
-| int `top_def`        | TODO                                            |
-| String `top_cpt`     | TODO                                            |
-| int `right_str`      | TODO                                            |
-| int `right_def`      | TODO                                            |
-| String `right_cpt`   | TODO                                            |
-| int `bottom_str`     | TODO                                            |
-| int `bottom_def`     | TODO                                            |
-| String `bottom_cpt`  | TODO                                            |
-| int `left_str`       | TODO                                            |
-| int `left_def`       | TODO                                            |
-| String `left_cpt`    | TODO                                            |
-| int `life`           | TODO                                            |
-| String `cpt`         | TODO                                            |
-| String `type`        | TODO                                            |
+| Nom                  | Description                                                    |
+| -------------------- | -------------------------------------------------------------- |
+| int `card_id`        | L'identifiant de la ressource                                  |
+| String `name`        | Nom de la carte                                                |
+| String `description` | Description de la carte                                        |
+| String `image`       | L'image liée à la carte                                        |
+| int `top_str`        | Force du côté supérieur                                        |
+| int `top_def`        | Défense du côté supérieur                                      |
+| String `top_cpt`     | Capacité du côté supérieur                                     |
+| int `right_str`      | Force du côté droit                                            |
+| int `right_def`      | Défense du côté droit                                          |
+| String `right_cpt`   | Capacité du côté droit                                         |
+| int `bottom_str`     | Force du côté inférieur                                        |
+| int `bottom_def`     | Défense du côté inférieur                                      |
+| String `bottom_cpt`  | Capacité du côté inférieur                                     |
+| int `left_str`       | Force du côté gauche                                           |
+| int `left_def`       | Défense du côté gauche                                         |
+| String `left_cpt`    | Capacité du côté gauche                                        |
+| int `life`           | Vie de la carte                                                |
+| String `cpt`         | Capacité de la carte                                           |
+| String `type`        | Type de la carte (`artefact`, `creature`, `spell` ou `system`) |
 
 ## Deck
 
@@ -247,24 +332,24 @@ Une Deck est un paquet de cartes pré-construit dans le jeu.
 | Nom                  | Description                                     |
 | -------------------- | ----------------------------------------------- |
 | int `deck_id`        | L'identifiant de la ressource                   |
-| String `color`       | TODO                                            |
-| String `name`        | TODO                                            |
-| String `image`       | TODO                                            |
-| String `description` | TODO                                            |
-| Card[] `cards`       | TODO                                            |
+| String `color`       | Couleur du deck                                 |
+| String `name`        | Nom du deck                                     |
+| String `image`       | Image du deck                                   |
+| String `description` | Description du deck                             |
+| Card[] `cards`       | Cartes présentes dans le deck                   |
 
 ## User
 
-A user is a user registered on the website and on any services of The First Spine.
+Un utilisateur enregistré sur les services de The First Spine.
 
 **Champs**
 
 | Nom                  | Description                                     |
 | -------------------- | ----------------------------------------------- |
 | int `user_id`        | L'identifiant de la ressource                   |
-| String `name`        | The name of the user                            |
-| object `points`      | The number of points the user has               |
+| String `name`        | Nom d'utilisateur                               |
 | String `avatar`      | The image of the user                           |
+| Object `loots`       | Les récompenses de l'utilisateur                |
 
 ## ArenaCard
 
