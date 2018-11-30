@@ -377,11 +377,11 @@ Représente une instance de jeu
 | Name                     | Description                                     |
 | ------------------------ | ----------------------------------------------- |
 | int `arena_game_id`      | L'identifiant de la ressource                   |
-| String `game_type`       | TODO                                            |
-| String `created_at`      | TODO                                            |
+| String `game_type`       | Le type de jeu                                  |
+| String `created_at`      | Date de création de la partie                   |
 | User[] `users`           | The list of the users                           |
 | Deck[] `decks`           | The list of the decks used by the users         |
-| object `options`         | TODO                                            |
+| object `options`         | Options de jeu                                  |
 | ArenaGameType `gameType` | The game type associated with the game          |
 | ArenaCard[] `board`      | The cards on the board                          |
 
@@ -437,7 +437,7 @@ Par exemple :
 
 ### Paramètres dynamiques
 
-Il est possible de retourner un résultat dans les paramètres d'un script d'action. Chaque résultat attendu doit être précédé d'un `$`.
+Parfois, les scripts d'Arena ont des paramètres dynamiques, c'est à dire que le résultat d'un précédent script sera mis dans les options d'un paramètre. Chaque résultat attendu est précédé d'un `$`.
 
 Exemple :
 
@@ -481,9 +481,9 @@ Chose a square on the board.
 
 | Name                     | Description                                     |
 | ------------------------ | ----------------------------------------------- |
-| boolean `nearPlayer`     | TODO                                            |
-| boolean `nearControlled` | TODO                                            |
-| boolean `isEmpty`        | TODO                                            |
+| Boolean `nearPlayer`     | TODO                                            |
+| Boolean `nearControlled` | TODO                                            |
+| Boolean `isEmpty`        | TODO                                            |
 | String[] `nextTo`        | TODO                                            |
 | String[] `types`         | TODO                                            |
 | String[] `range`         | TODO                                            |
