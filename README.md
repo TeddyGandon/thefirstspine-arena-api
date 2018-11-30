@@ -287,11 +287,32 @@ curl -X POST \
 
 ## zombifyUser
 
+"Zombifie" un joueur, c'est à dire que le joueur ne pourra plus interagir et passera son tour à chaque fois. Vous pouvez utiliser ceci lorsqu'un joueur devient inactif trop longtemps ou lorsqu'il déclare forfait. En effet, il n'existe pas de moyen de concéder une victoire, une partie doit être terminée.
+
 ### Input
+
+- `String token`: le jeton d'accès correspondant à l'utilisateur devant être zombifié
+- `int arena_game_id`: l'identifiant de la partie en cours
 
 ### Output
 
+Retourne un résultat équivalent à `getGame`.
+
 ### Example
+
+```curl
+curl -X POST \
+  https://www.thefirstspine.fr/api/arena \
+  -H 'Content-Type: application/json' \
+  -H 'X-Api-Credentials: ptest:stest' \
+  -d '{
+    "method": "zombifyUser",
+    "parameters": {
+        "token": "Nefo4ny3pVhJtoOHYIHz4crpfvJNQtYPrdIoxpaZVVjTfwiyjT0xTR12sWvdYBlRLgyYRVPOOZwBB8X6xXF0KG5RZxskzc27Qa25",
+        "arena_game_id": 2
+    }
+}'
+```
 
 # Documentation de référence des objets
 
