@@ -400,11 +400,11 @@ Représente une instance de jeu
 | int `arena_game_id`      | L'identifiant de la ressource                   |
 | String `game_type`       | Le type de jeu                                  |
 | String `created_at`      | Date de création de la partie                   |
-| User[] `users`           | The list of the users                           |
-| Deck[] `decks`           | The list of the decks used by the users         |
+| User[] `users`           | La liste des joueurs                            |
+| Deck[] `decks`           | La liste des decks utilisés par les joueurs     |
 | object `options`         | Options de jeu                                  |
-| ArenaGameType `gameType` | The game type associated with the game          |
-| ArenaCard[] `board`      | The cards on the board                          |
+| ArenaGameType `gameType` | Le type de jeu                                  |
+| ArenaCard[] `board`      | Les cartes sur le plateau de jeu                |
 
 ## ArenaGameAction
 
@@ -484,7 +484,7 @@ Exemple :
 
 Le paramètre `nextTo` aura la valeur du champ `from` lors de l'execution du script.
 
-### Scripts reference
+### Documentation de référence des scripts
 
 **choseCards**
 
