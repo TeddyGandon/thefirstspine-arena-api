@@ -1,4 +1,4 @@
-# Sommaire
+# ➡️ Sommaire
 
 - Déclarer une clé API
 - Obtenir un jeton d'accès
@@ -7,7 +7,7 @@
 - Documentation de référence des méthodes
 - Documentation de référence des objets
 
-# Déclarer une clé API
+# ➡️ Déclarer une clé API
 
 Avant de commencer à créer votre client et intégrer The First Spine à votre plateforme vous devez au préalable obtenir une clé API. Vous pouvez nous contacter pour en obtenir une. Nous n'en générons qu'à la demande et à l'étude de votre projet (on ne va pas vous générer une clé API pour vous permettre d'augmenter votre ratio victoires / défaites).
 
@@ -16,17 +16,17 @@ Une clé api contient plusieurs éléments :
 - L'identifiant secret appelé `secret`
 - Le domain autorisé sur la clé API appelé `allowed_domain`
 
-# Obtenir un jeton d'accès
+# ➡️ Obtenir un jeton d'accès
 
 Vous ne pouvez interagir avec l'API sans obtenir de jeton d'accès. Ces jetons sont un moyen d'identifier les utilisateurs qui doivent donner leur accord explicitement.
 
 Afin d'obtenir un jeton d'accès vous devez diriger l'utilisateur vers l'adresse `https://www.thefirstspine.fr/<fr|en>/access?key=<public>[&redirect=<redirect>]`. 
 
-Une fois l'utilisateur ayant donné son accord, il sera redirigé vers votre le domaine autorisé de votre application comme suite : `<allowed_domain>[<redirect>]?access_token=<access_token>`
+Une son accord donné, il sera redirigé vers votre le domaine autorisé de votre application comme suite : `<allowed_domain>[<redirect>]?access_token=<access_token>`
 
 Le jeton d'accès à l'utilisateur est contenu dans le paramètre GET `<access_token>` après retour sur votre application.
 
-# Interagir avec l'API Arena
+# ➡️ Interagir avec l'API Arena
 
 L'API Arena est accessible depuis une URL unique : `https://www.thefirstspine.fr/api/arena`.
 
@@ -47,7 +47,7 @@ curl -X POST \
 - `<method>` est la méthode à appeler de l'API. L'API est organisée en méthodes que vous pouvez appeler comme `createGame` ou `getCards`.
 - `<parameters>` est un objet qui change en fonction de la méthode appelée.
 
-# Internationnalisation & mise en forme
+# ➡️ Internationnalisation & mise en forme
 
 L'API peut être à la fois en anglais et en français. Toutes les ressources seront traduites et disponibles dans la langue choisie (par défaut en Français). Vous pouvez changer la langue de l'API de deux manières :
 - en ajoutant un header `Accept-Language`
@@ -65,16 +65,16 @@ De plus, certains textes d'objets (comme la description des cartes) sont mis en 
 | stat str               | Une statistique de force                                      | N/A     | Non      |
 | stat def               | Une statistique de défense                                    | N/A     | Non      |
 | stats capacity         | Une capacité                                                  | N/A     | Non      |
-| icon icon-trahison     | Une icône de capacité (entouré d'un élément `stats capacity`) | N/A     | Oui      |
-| icon terre-brulee      | Une icône de capacité (entouré d'un élément `stats capacity`) | N/A     | Oui      |
+| icon icon-trahison     | Une icône de capacité (entouré d'un élément `stats capacity`) | N/A     | ❓       |
+| icon terre-brulee      | Une icône de capacité (entouré d'un élément `stats capacity`) | N/A     | 🔥       |
 
-# Comprendre l'API : Jeu / Actions / Réponses
+# ➡️ Comprendre l'API : Jeu / Actions / Réponses
 
-Avant de lire cette partie, nous vous invitons à consulter cet article qui regroupe les réflexions que nous avons eu sur le système d'Arena : https://github.com/TeddyGandon/thefirstspine-arena-throughts/blob/master/core.md
+⚠️ Avant de lire cette partie, nous vous invitons à consulter cet article qui regroupe les réflexions que nous avons eu sur le système d'Arena : https://github.com/TeddyGandon/thefirstspine-arena-throughts/blob/master/core.md
 
 Lorsque vous créez un jeu avec Arena une pile d'actions potientielle est créée. Arena attend alors une réponse de la part de l'utilisateur concerné par la pile d'actions disponible.
 
-# Documentation de référence des méthodes
+# ➡️ Documentation de référence des méthodes
 
 ## createGame
 
@@ -83,7 +83,7 @@ Créé une partie dans Arena.
 ### Input
 
 - `String(quickGame|bga|fireMountain|beltain|lostGraveyard|pumpking) gameType`: le type de jeu que vous souhaitez créer.
-- `Object({token: String, destiny: String(conjurer|summoner|sorcerer|hunter), origin: String(healer|surgeon|ignorant|architect)})[] players`: les joueurs qui vont participer à 
+- `Object({token: String, destiny: String(conjurer|summoner|sorcerer|hunter), origin: String(healer|surgeon|ignorant|architect)})[] players`: les joueurs qui vont participer à l'activité
 
 ### Output
 
@@ -314,7 +314,7 @@ curl -X POST \
 }'
 ```
 
-# Documentation de référence des objets
+# ➡️ Documentation de référence des objets
 
 ## Card
 
