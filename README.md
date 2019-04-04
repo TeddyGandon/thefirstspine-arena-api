@@ -488,50 +488,41 @@ Le paramètre `nextTo` aura la valeur du champ `from` lors de l'execution du scr
 
 **choseCards**
 
-Chose a card in the hand.
+Choisir une carte dans la main du joueur.
 
 | Name                     | Description                                     |
 | ------------------------ | ----------------------------------------------- |
-| String[] `types`         | TODO                                            |
-| int `min`                | TODO                                            |
-| int `max`                | TODO                                            |
+| String[] `types`         | Les types de cartes                             |
+| int `min`                | Nombre minimum de cartes                        |
+| int `max`                | Nombre maximum de cartes                        |
 
 **choseSquare**
 
-Chose a square on the board.
+Choisir une case du plateau de jeu.
 
 | Name                     | Description                                     |
 | ------------------------ | ----------------------------------------------- |
-| Boolean `nearPlayer`     | TODO                                            |
-| Boolean `nearControlled` | TODO                                            |
-| Boolean `isEmpty`        | TODO                                            |
-| String[] `nextTo`        | TODO                                            |
-| String[] `types`         | TODO                                            |
-| String[] `range`         | TODO                                            |
+| Boolean `nearPlayer`     | La case doit être à côté du joueur              |
+| Boolean `nearControlled` | La case doit être à côté d'une case contrôlée par le joueur |
+| Boolean `isEmpty`        | La case doit être vide                          |
+| String[] `nextTo`        | La case doit être adjacente à                   |
+| String[] `types`         | La case doit contenir une carte de type         |
+| String[] `range`         | Position des cases possibles                    |
 
 **skip**
 
-Skip the action.
+Saute une action.
 
 ## ArenaGameType
 
-TODO
+Représente un type de jeu sur Arena
 
 **Champs**
 
 | Name                     | Description                                     |
 | ------------------------ | ----------------------------------------------- |
-| String `backgroundImage` | TODO                                            |
-| int `neededUsers`        | TODO                                            |
-| bool `usePredefinedDeck` | TODO                                            |
-| bool `pointsWin`         | TODO                                            |
-| bool `pointsLose`        | TODO                                            |
-| bool `timesPerWeek`      | TODO                                            |
-
-## ArenaMessage
-
-TODO
-
-**Champs**
-
-TODO
+| int `minUsers`           | Utilisateurs minimums                           |
+| bool `maxUsers`          | Utilisteurs maximums                            |
+| bool `destinies`         | Destinées autoriées                             |
+| bool `origins`           | Origines autorisées                             |
+| bool `name`              | Nom du type de jeu                              |
